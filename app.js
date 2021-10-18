@@ -1,7 +1,6 @@
 const inquirer = require('inquirer');
-const { writeFile, copyFile } = require('./utils/generate-site.js');
 const generatePage = require('./src/page-template');
-
+const { writeFile, copyFile } = require('./utils/generate-site');
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -54,7 +53,8 @@ const promptProject = portfolioData => {
 Add a New Project
 ====================
 `);
-    return inquirer.prompt([
+    return inquirer
+    .prompt([
         {
             type: 'input',
             name: 'name',

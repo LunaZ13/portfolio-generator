@@ -1,5 +1,5 @@
 const fs = require('fs');
-
+// writing files
 const writeFile = fileContent => {
     return new promise((resolve, reject) => {
         fs.writeFile('./dist/index.html', fileContent, err => {
@@ -18,10 +18,10 @@ const writeFile = fileContent => {
         });
     });
 };
-
-const copyFile = fileContent => {
+// copying file
+const copyFile = () => {
     return new promise((resolve, reject) => {
-        fs.copyFile('./dist/index.html', fileContent, err => {
+        fs.copyFile('./src/style.css', './dist/style.css',  err => {
             // if there is an error, reject the promise and send the error to the promise's .catch method
             if (err) {
                 reject(err);
@@ -32,7 +32,7 @@ const copyFile = fileContent => {
             // if everything went well, resolve the promise and send the data to the .then method
             resolve({
                 ok: true,
-                message: 'File created'
+                message: 'stylesheet created'
             });
         });
     });
