@@ -40,7 +40,13 @@ const promptUser = () => {
             type: 'input',
             name: 'about',
             message: 'Provide some information about yourself:',
-            when: ({ confirmAbout }) => confirmAbout
+            when: ({ confirmAbout }) => { 
+             if ({ confirmAbout }) {
+                 return true;
+             } else {
+                 return false;
+             }
+            }
         }
     ]);
 };
@@ -115,7 +121,9 @@ Add a New Project
         
     ])
     .then(projectData => {
+        console.log(projectData)
         portfolioData.projects.push(projectData);
+        console.log(portfolioData)
         if (projectData.confirmAddProject) {
             return promptProject(portfolioData);
         } else {
